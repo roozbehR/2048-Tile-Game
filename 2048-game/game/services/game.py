@@ -66,7 +66,7 @@ class Game():
             t = self._board.get_tile(row, col)
             if t:
                 if t.get_value() == tile.get_value():
-                    self._board.remove_tile(tile, row, col)
+                    self._board.remove_tile(tile, row + 1, col)
                     self._board.remove_tile(t, row, col)
                     self._board.add_tile(Tile(tile.get_value() * 2), row, col)
                 break
@@ -79,7 +79,7 @@ class Game():
             t = self._board.get_tile(row, col)
             if t:
                 if t.get_value() == tile.get_value():
-                    self._board.remove_tile(tile, row, col)
+                    self._board.remove_tile(tile, row - 1, col)
                     self._board.remove_tile(t, row, col)
                     self._board.add_tile(Tile(tile.get_value() * 2), row, col)
                 break
@@ -92,7 +92,7 @@ class Game():
             t = self._board.get_tile(row, col)
             if t:
                 if t.get_value() == tile.get_value():
-                    self._board.remove_tile(tile, row, col)
+                    self._board.remove_tile(tile, row, col + 1)
                     self._board.remove_tile(t, row, col)
                     self._board.add_tile(Tile(tile.get_value() * 2), row, col)
                 break
@@ -106,7 +106,7 @@ class Game():
             t = self._board.get_tile(row, col)
             if t:
                 if t.get_value() == tile.get_value():
-                    self._board.remove_tile(tile, row, col)
+                    self._board.remove_tile(tile, row, col - 1)
                     self._board.remove_tile(t, row, col)
                     self._board.add_tile(Tile(tile.get_value() * 2), row, col)
                 break
