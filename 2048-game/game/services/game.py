@@ -1,17 +1,21 @@
-from game.board import Board
-from game.enums import Direction
-from game.tile import Tile
-from game.enums import Direction
+from game.board.board import Board
+from game.enums.enums import Direction
+from game.tile.tile import Tile
 
 class Game():
     def __init__(self, board: Board) -> None:
         self._board = board
         self._rows = self._board.get_rows()
         self._cols = self._board.get_cols()
+        self.get_board().add_tile(Tile(), 0, 0)
+        self.get_board().add_tile(Tile(), 2, 3)
 
     def start_service(self, command: str) -> None:
+        print('before')
+        self._board.print_board()
         direction = Direction(command)
         self.move(direction)
+        print('after')
         self._board.print_board()
     
     def get_board(self) -> Board:

@@ -1,4 +1,4 @@
-from game.tile import Tile
+from game.tile.tile import Tile
 
 class Board():
     def __init__(self, rows: int = 4, cols: int = 4) -> None:

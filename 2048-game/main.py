@@ -1,5 +1,5 @@
-from services.game import Game
-from board.board import Board
+from game.board.board import Board
+from game.services.game import Game
 
 def main():
     board = Board()
