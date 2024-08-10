@@ -21,10 +21,10 @@ class Game():
             self.move(command)
             self._board.print_board()
             self.print_score()
-            if self.is_game_won():
+            if self._is_game_won():
                 print("You won!")
                 break
-            if self.is_game_over():
+            if self._is_game_over():
                 print("Game over!")
                 break
     
@@ -34,7 +34,7 @@ class Game():
     def set_score(self, score: int = 0) -> None:
         self._score = score
 
-    def update_score(self, score: int = 2) -> None:
+    def _update_score(self, score: int = 2) -> None:
         self._score += score
     
     def get_board(self) -> Board:
@@ -52,7 +52,6 @@ class Game():
         else:
             raise ValueError("Invalid direction")
         self._add_random_tile()
-        self._update_score()
     
     def move_left(self) -> None:
         for row in range(self._rows):
@@ -91,7 +90,7 @@ class Game():
                     self._board.add_empty_tile(row + 1, col)
                     self._board.remove_tile(t, row, col)
                     self._board.add_tile(Tile(tile.get_value() * 2), row, col)
-                    self.update_score(tile.get_value() * 2)
+                    self._update_score(tile.get_value() * 2)
                 break
             else:
                 self._board.remove_tile(tile, row + 1, col)
@@ -108,7 +107,7 @@ class Game():
                     self._board.add_empty_tile(row - 1, col)
                     self._board.remove_tile(t, row, col)
                     self._board.add_tile(Tile(tile.get_value() * 2), row, col)
-                    self.update_score(tile.get_value() * 2)
+                    self._update_score(tile.get_value() * 2)
                 break
             else:
                 self._board.remove_tile(tile, row - 1, col)
@@ -125,7 +124,7 @@ class Game():
                     self._board.add_empty_tile(row, col + 1)
                     self._board.remove_tile(t, row, col)
                     self._board.add_tile(Tile(tile.get_value() * 2), row, col)
-                    self.update_score(tile.get_value() * 2)
+                    self._update_score(tile.get_value() * 2)
                 break
             else:
                 self._board.remove_tile(tile, row, col + 1)
@@ -143,7 +142,7 @@ class Game():
                     self._board.add_empty_tile(row, col - 1)
                     self._board.remove_tile(t, row, col)
                     self._board.add_tile(Tile(tile.get_value() * 2), row, col)
-                    self.update_score(tile.get_value() * 2)
+                    self._update_score(tile.get_value() * 2)
                 break
             else:
                 self._board.remove_tile(tile, row, col - 1)
